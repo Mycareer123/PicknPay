@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    <meta name="author" content="GOAK">
+    <meta name="description" content="List of good ready for sale on Ashanko Farms">
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" type="image/png" href="Ashanko Farms icon.jpg">
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+        input {
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 100%;
+            max-width: 400px;
+        }
+        label{
+            font-weight: bold;
+        }
+        button {
+            padding: 12px 20px;
+            font-size: 1em;
+            margin-top: 20px;
+            cursor: pointer;
+            background-color: green;
+            color: white;
+            border: none;
+        }
+    </style>
+
+
+</head>
+<body>
+    <header>
+        <h1>ASHANKO FARMS</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home Page</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-slider">
+       
+        <div class="hero-text">
+          <h2>Fresh and healthy rabbits on sale at affordable price</h2>
+          <p>Healthy produce also delivered on time and with care</p>
+        </div>
+      </section>
+
+      <section class="about">
+        <h1>Order From Our Farm!</h1>
+        <p>Fill out your details and click the button to order via Whatsapp</p><br><br><br><hr>
+
+        <form id="orderForm" onsubmit="sendWhatsAppMessage(); return false;">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" required><br>
+
+            <label for="number">Phone Number:</label><br>
+            <input type="text" id="number" required><br><br>
+
+            <label for="address">Address:</label><br>
+            <input type="text" id="address" required><br><br>
+            
+            <label for="delivery">Preferred Delivery Date:</label><br>
+            <input type="date" id="delivery" required><br><br>
+
+            <label for="rabbits">Rabbits(250 each):</label><br>
+            <input type="number" id="rabbits" required min="0" value="0"><br><br>
+
+            <button type="submit">Order via WhatsApp</button>
+        </form>
+      </section>
+
+      <script>
+        function sendWhatsAppMessage(){
+            const name= document.getElementById("name").value;
+            const phone= document.getElementById("number").value;
+            const address= document.getElementById("address").value;
+            const date = document.getElementById("delivery").value;
+            const rabbits = document.getElementById("rabbits").value || 0;
+
+            const message = `Hi! I would like to place an order:%20\n`+
+            `Name: ${name}%20\n`+
+            `Phone: ${phone}%20\n`+
+            `Address: ${address}%20\n`+
+            `Preferred Delivery Date: ${date}%20\n`+
+            `Rabbits: ${rabbits}\n`;
+
+            const phoneNumber = `233599178586`;
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+            window.open(whatsappURL, "_blank");
+            }
+    </script>
+
+<footer>
+    <br><p>&copy; 2025 Ashanko Farms. All rights reserved.</p><br>
+  </footer>
+</body>
+</html>

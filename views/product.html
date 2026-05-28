@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Details</title>
+  <link rel="stylesheet" href="../assets/main.css">
+  <style>
+    /* Page base */
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgb(129,129, 210);
+  margin: 0;
+  padding: 0;
+}
+
+/* Center content */
+#product-name,
+#main-image,
+#gallery,
+#description,
+#specs,
+#price,
+#qty,
+#add-to-cart {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+}
+
+/* Product name */
+#product-name {
+  font-size: 2.4rem;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  color: rgb(42, 42, 154);
+  text-align: center;
+}
+
+/* Main image */
+#main-image {
+  width: 100%;
+  max-width: 1000px;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 4px solid rgb(42, 42, 154);
+  background: #fff;
+  margin-bottom: 15px;
+}
+
+/* Gallery */
+#gallery {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+#gallery img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid rgb(42, 42, 154);
+  transition: transform 0.3s ease, border 0.3s ease;
+}
+
+#gallery img:hover {
+  transform: scale(1.08);
+  border-color: rgb(129,129, 210);
+}
+
+/* Description */
+#description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgb(32, 32, 93);
+  padding: 0 20px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* Specs */
+#specs {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+  color:rgb(32, 32, 93)
+}
+
+#specs li {
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Price */
+#price {
+  font-size: 2rem;
+  color: rgb(32, 32, 93);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Quantity input */
+#qty {
+  width: 100px;
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 2px solid rgb(32, 32, 93);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Add to cart button */
+#add-to-cart {
+  width: 300px;
+  padding: 14px;
+  font-size: 1.2rem;
+  background: rgb(42, 42, 154);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 50px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#add-to-cart:hover {
+  background: rgb(32, 32, 93);
+  transform: translateY(-2px);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  #main-image {
+    height: 260px;
+  }
+
+  #product-name {
+    font-size: 1.9rem;
+  }
+
+  #price {
+    font-size: 1.6rem;
+  }
+}
+
+.cart-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgb(32, 32, 93);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.cart-icon:hover {
+  background: rgb(42, 42, 154);
+}
+
+#cart-count {
+  background: #fff;
+  color: #2e7d32;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.color{
+  text-align: center;
+  font-size: 1.2rem;
+  color: rgb(32, 32, 93);
+  justify-items: center;
+}
+
+#colorSelect{
+  width: 5rem;
+  height: 2rem;
+  font-size: 1.2rem;
+
+}
+
+.color>div{
+  margin-top: 5px;
+  width: 2rem;
+  height: 2rem;
+}
+</style>
+<link rel="icon" type="image/png" href="Ashanko Farms icon.jpg">
+</head>
+<body>
+  <a href="cart.html" class="cart-icon">
+   🛒 <span id="cart-count">0</span>
+  </a>
+
+  <h1 id="product-name"></h1>
+  <img id="main-image" src="" width="300">
+
+  <div id="gallery"></div>
+
+  <p id="description"></p>
+
+  <!--Select Color of Product if available-->
+  
+  
+  <ul id="specs"></ul>
+
+  <div class="color">
+    <label for="color">Choose Color:</label>
+    
+    <select name="color" id="colorSelect">
+      <option value="none">None</option>
+    </select>
+    <div>
+
+    </div>
+  </div>
+
+  <h2 id="price"></h2>  
+
+  <input type="number" id="qty" value="1" min="1">
+
+  <button id="add-to-cart">Add to Cart</button>
+</body>
+<script>
+  const PRODUCTS = {
+  1: {
+    id: 1,
+    name: "Amarillys",
+    category: "Flowers",
+    price: 320,
+    images: [
+      "../images/products/Amarillys1.jpeg",
+    ],
+    description: "The amaryllis is a striking flowering plant known for its large, trumpet-shaped blooms and bold colors. It symbolizes beauty, strength, and pride, making it a standout addition to any garden or floral display.",
+    specs: {
+      Type: "Outdoor Flower",
+      Delivery: "72 HRS"
+    }
+  },
+
+  2:{
+    id: 2,
+    name:"Chrysanthemum",
+    category:"Flowers",
+    price: 120,
+    images:[
+      "../images/products/Chrysanthemum1.jpeg"
+    ],
+    description: "The chrysanthemum is a hardy flowering plant admired for its full, layered blooms and wide range of vibrant colors. It represents longevity and joy, and is valued for both its beauty and durability.",
+    specs:{
+      Type: "Outdoor Flower",
+      Delivery:"48HRS"
+    }
+  },
+
+  3:{
+    id: 3,
+    name:"Kalanchoe",
+    category:"Flowers",
+    price: 150,
+    images:[
+      "../images/products/Kalanchoe1.jpeg"
+    ],
+    description: "Kalanchoe is a resilient flowering succulent with thick leaves and clusters of small, brightly colored blooms. It is valued for its long-lasting flowers, low maintenance, and decorative appeal.",
+    specs:{
+      Type: "Outdoor Flower",
+      Delivery:"48HRS"
+    }
+  },
+
+  4:{
+    id: 4,
+    name:"Rose",
+    category:"Flowers",
+    price: 270,
+    images:[
+      "../images/products/Rose1.jpeg",
+      "../images/products/Rose2.jpeg",
+      "../images/products/Rose3.jpeg"
+    ],
+    description: "The rose is a classic flowering plant celebrated for its elegant petals and rich fragrance. It symbolizes love and beauty and is cherished worldwide for both decoration and gifting.",
+    specs:{
+      Type: "Outdoor Flower",
+      Delivery:"48HRS"
+    }
+  },
+
+  5:{
+    id:5,
+    name:"Cooking Set Pan and 4 Pots",
+    category:"Cooking Utensils",
+    price: 400,
+    images:[
+      "../images/products/Cooking Set.jpeg",
+    ],
+    description: "Get you Cooking Set Coming with 4 pots of different sizes and a Fry Pan at a very affordable price",
+    specs:{
+      Type: "Cooking Utensil",
+      Delivery:"48HRS"
+    },
+    color: [
+      "red",
+      "yellow"
+    ]
+  },
+
+  6:{
+    id:6,
+    name:"Vacuum Flask with temperature display",
+    category:"Flask",
+    price: 120,
+    images:[
+      "../images/products/Vaccum Flask.jpeg",
+    ],
+    description: "Keeps Liquid at an optimum temperature. Both hot and cold",
+    specs:{
+      Type: "Bottle",
+      Delivery:"48HRS"
+    },
+    color:[
+      "red", 
+      "blue",
+      'yellow',
+    ]
+  }
+};
+
+function updateCartCount() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let count = cart.reduce((sum, item) => sum + item.quantity, 0);
+  document.getElementById("cart-count").textContent = count;
+}
+
+updateCartCount();
+
+
+
+</script>
+<script src="../assets/products.js" defer></script>
+</html>

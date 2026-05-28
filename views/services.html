@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Request a Service</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">AshankoFarm</a>
+    </div>
+
+    <!-- Hamburger Icon -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="cart.html">Cart</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+<section id="service-request">
+  <h1>Landscaping & Garden Maintenance Request</h1>
+
+  <form id="serviceForm" class="contact-form" style="display:block; opacity:1; transform:translateX(0);">
+
+    <input type="text" id="client-name" placeholder="Your Name" required>
+    <input type="tel" id="client-phone" placeholder="Phone Number" required>
+
+    <div class="service-select">
+      <label for="service-type">Select a Service</label>
+
+      <select id="service-type" required>
+        <option value="" disabled selected>Choose a service</option>
+        <option value="Landscaping">Landscaping</option>
+        <option value="Garden Maintenance">Garden Maintenance</option>
+        <option value="Lawn Setup">Lawn Setup</option>
+        <option value="Flower Bed Design">Flower Bed Design</option>
+        <option value="General Garden Work">General Garden Work</option>
+      </select>
+  </div>
+
+
+    <textarea id="service-details" rows="5" placeholder="Describe the work you need" required></textarea>
+
+    <button type="submit">Send Request via WhatsApp</button>
+  </form>
+</section>
+
+<script>
+  document.getElementById("serviceForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("client-name").value.trim();
+    let phone = document.getElementById("client-phone").value.trim();
+    let service = document.getElementById("service-type").value;
+    let details = document.getElementById("service-details").value.trim();
+
+    let whatsappNumber = "233509468114";
+
+    let message =
+      `SERVICE REQUEST%0A%0A` +
+      `Name: ${name}%0A` +
+      `Phone: ${phone}%0A` +
+      `Service: ${service}%0A` +
+      `Details: ${details}`;
+
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
+  });
+</script>
+
+
+<!--Hamburger mode java script-->
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("nav-links");
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="../assets/main.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: rgb(206, 206, 227);
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: rgb(32, 32, 93);
+    }
+
+    .cart-container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid rgb(32, 32, 93);
+    }
+
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+
+    .item-info{
+      color: rgb(32, 32, 93)
+    }
+
+    .item-info h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .item-info img{
+      width: 200px;
+      border-radius: 10px;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+
+    .quantity-controls button {
+      padding: 5px 10px;
+      margin: 0 5px;
+      background: rgb(129,129,210);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .quantity-controls button:hover {
+      background: rgb(32, 32, 93)
+    }
+
+    .remove-btn {
+      background: rgb(220, 35, 35) !important;
+    }
+
+    .remove-btn:hover{
+      background: red !important;
+    }
+
+    #total {
+      font-size: 1.5rem;
+      text-align: right;
+      margin-top: 20px;
+      color: rgb(32, 32, 93);
+      font-style: bold;
+      font-weight: 900;
+    }
+
+    #clear-cart {
+      background: rgb(220, 35, 35);
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    #clear-cart:hover{
+      background: rgb(255, 0, 0);
+    }
+
+    #whatsapp-btn {
+      background: rgb(129,129,210);
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+      font-size: 1.1rem;
+      width: 100%;
+    }
+
+    #whatsapp-btn:hover{
+      background: rgb(32, 32, 93)
+    }
+  </style>
+  <link rel="icon" type="image/png" href="Ashanko Farms icon.jpg">
+</head>
+<body>
+
+  <h1>Your Shopping Cart</h1>
+
+  <div class="cart-container" id="cart-items"></div>
+
+  <div id="total"></div>
+
+  <button id="clear-cart">Clear Cart</button>
+
+  <button id="whatsapp-btn">Order Now</button>
+
+  <script>
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  function displayCart() {
+    let container = document.getElementById("cart-items");
+    container.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+      total += item.price * item.quantity;
+
+      container.innerHTML += `
+        <div class="cart-item">
+          <div class="item-info">
+            <h3>${item.name}</h3>
+            <p>GH₵ ${item.price}</p>
+            <p>Color: ${item.color}</p> 
+          </div>
+
+          <div class="quantity-controls">
+            <button onclick="changeQty(${index}, -1)">-</button>
+            <span>${item.quantity}</span>
+            <button onclick="changeQty(${index}, 1)">+</button>
+            <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+          </div>
+        </div>
+      `;
+    });
+
+    document.getElementById("total").textContent = "Total: GH₵ " + total.toFixed(2);
+  }
+
+  function changeQty(index, amount) {
+    cart[index].quantity += amount;
+
+    if (cart[index].quantity < 1) {
+      cart[index].quantity = 1;
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    displayCart();
+  }
+
+  function removeItem(index) {
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    displayCart();
+  }
+
+  document.getElementById("clear-cart").addEventListener("click", () => {
+    if (confirm("Clear entire cart?")) {
+      cart = [];
+      localStorage.setItem("cart", JSON.stringify(cart));
+      displayCart();
+    }
+  });
+
+  // ============================
+  // SEND ORDER TO WHATSAPP
+  // ============================
+
+  document.getElementById("whatsapp-btn").addEventListener("click", () => {
+    if (cart.length === 0) {
+      alert("Your cart is empty.");
+      return;
+    }
+
+    let message = "ORDER DETAILS:%0A%0A";
+
+    let total = 0;
+
+    cart.forEach(item => {
+      let subtotal = item.price * item.quantity;
+      total += subtotal;
+
+      message += `• ${item.name}%0A  Qty: ${item.quantity}%0A  Price: GH₵${item.price}%0A  Subtotal: GH₵${subtotal}%0A%0A`;
+    });
+
+    message += `TOTAL COST: GH₵${total.toFixed(2)}%0A%0A`;
+
+    // Timestamp
+    let timestamp = new Date().toLocaleString();
+    message += `Order Time: ${timestamp}%0A%0A`;
+
+    // Fetch GPS location
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+
+        let lat = position.coords.latitude;
+        let lon = position.coords.longitude;
+
+        let mapLink = `https://maps.google.com/?q=${lat},${lon}`;
+
+        message += `Customer Location:%0A${mapLink}%0A%0A`;
+
+        sendToWhatsApp(message);
+
+      }, () => {
+        // If location is denied
+        message += `Customer Location: Not provided%0A%0A`;
+        sendToWhatsApp(message);
+      });
+
+    } else {
+      // No GPS support
+      message += `Customer Location: Not supported%0A%0A`;
+      sendToWhatsApp(message);
+    }
+  });
+
+  function sendToWhatsApp(message) {
+    let adminNumber = "233509468114"; // Your father's WhatsApp number
+    let url = `https://wa.me/${adminNumber}?text=${message}`;
+    window.open(url, "_blank");
+  }
+
+  // Load cart on start
+  displayCart();
+</script>
+
+
+</body>
+</html>
