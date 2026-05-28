@@ -223,7 +223,7 @@ body {
     <label for="color">Choose Color:</label>
     
     <select name="color" id="colorSelect">
-      <option value="none">None</option>
+      <option value=""></option>
     </select>
     <div>
 
@@ -231,7 +231,6 @@ body {
   </div>
 
   <h2 id="price"></h2>  
-
   <input type="number" id="qty" value="1" min="1">
 
   <button id="add-to-cart">Add to Cart</button>
@@ -240,63 +239,60 @@ body {
   const PRODUCTS = {
   1: {
     id: 1,
-    name: "Amarillys",
-    category: "Flowers",
-    price: 320,
+    name: "12pcs Cooking Set",
+    category: "Cooking Set",
+    price: 800,
     images: [
-      "../images/products/Amarillys1.jpeg",
+      "../images/products/12pcs cooking set.jpeg",
     ],
-    description: "The amaryllis is a striking flowering plant known for its large, trumpet-shaped blooms and bold colors. It symbolizes beauty, strength, and pride, making it a standout addition to any garden or floral display.",
+    description: "Silver cooking utensils. Come in 12 different sizes",
     specs: {
-      Type: "Outdoor Flower",
-      Delivery: "72 HRS"
-    }
+      Pieces: "12"
+    },
+    color: [
+      'silver'
+    ]
   },
 
   2:{
     id: 2,
-    name:"Chrysanthemum",
-    category:"Flowers",
-    price: 120,
+    name:"500ml temperature flask",
+    category:"Flask",
+    price: 90,
     images:[
-      "../images/products/Chrysanthemum1.jpeg"
+      "../images/products/500ml temperature flask 90gh.jpeg"
     ],
-    description: "The chrysanthemum is a hardy flowering plant admired for its full, layered blooms and wide range of vibrant colors. It represents longevity and joy, and is valued for both its beauty and durability.",
+    description: "",
     specs:{
-      Type: "Outdoor Flower",
-      Delivery:"48HRS"
+      Type: "Vacuum Flask",
     }
   },
 
   3:{
     id: 3,
-    name:"Kalanchoe",
-    category:"Flowers",
-    price: 150,
+    name:"Big commercial blender with dispenser",
+    category:"Blender",
+    price: 1800,
     images:[
-      "../images/products/Kalanchoe1.jpeg"
+      "../images/products/Big commercial blender with dispenser 1800gh.jpeg"
     ],
-    description: "Kalanchoe is a resilient flowering succulent with thick leaves and clusters of small, brightly colored blooms. It is valued for its long-lasting flowers, low maintenance, and decorative appeal.",
+    description: "A strong Blender with dispenser option too",
     specs:{
-      Type: "Outdoor Flower",
-      Delivery:"48HRS"
+      Type: "Blender",
     }
   },
 
   4:{
     id: 4,
-    name:"Rose",
-    category:"Flowers",
-    price: 270,
+    name:"8in1 blender",
+    category:"Blender",
+    price: 550,
     images:[
-      "../images/products/Rose1.jpeg",
-      "../images/products/Rose2.jpeg",
-      "../images/products/Rose3.jpeg"
+      "../images/products/8in1 blender 550gh.jpeg",
     ],
-    description: "The rose is a classic flowering plant celebrated for its elegant petals and rich fragrance. It symbolizes love and beauty and is cherished worldwide for both decoration and gifting.",
+    description: "",
     specs:{
-      Type: "Outdoor Flower",
-      Delivery:"48HRS"
+      Type: "Blender",
     }
   },
 
@@ -311,7 +307,6 @@ body {
     description: "Get you Cooking Set Coming with 4 pots of different sizes and a Fry Pan at a very affordable price",
     specs:{
       Type: "Cooking Utensil",
-      Delivery:"48HRS"
     },
     color: [
       "red",
@@ -321,23 +316,188 @@ body {
 
   6:{
     id:6,
-    name:"Vacuum Flask with temperature display",
-    category:"Flask",
-    price: 120,
+    name:"4in1 COOKING LUNCH BOWL",
+    category:"Bowl",
+    price: 300,
     images:[
-      "../images/products/Vaccum Flask.jpeg",
+      "../images/products/4in1 cooking lunch bowl 300gh.jpeg",
     ],
-    description: "Keeps Liquid at an optimum temperature. Both hot and cold",
+    description: "",
     specs:{
-      Type: "Bottle",
-      Delivery:"48HRS"
-    },
-    color:[
-      "red", 
-      "blue",
-      'yellow',
-    ]
-  }
+      Type: "Bowl",
+    }
+  },
+
+  7:{
+    id:7,
+    name:"SHOE RACK",
+    category:"Bowl",
+    price: 300,
+    images:[
+      "../images/products/Gh200 shoe rag.jpeg",
+    ],
+    description: "",
+    specs:{
+      Type: "Shoe Rack",
+    }
+  },
+
+  8:{
+    id:8,
+    name:"Hoffmans swallow maker 8L",
+    category:"Cooker",
+    price: 300,
+    images:[
+      "../images/products/Hoffmans swallow maker 8L 750gh kumasi.jpeg",
+    ],
+    description: "",
+    specs:{
+      Type: "COOKER",
+    }
+  },
+
+  9:{
+    id:9,
+    name:"6pcs stainless steel heavy under pot",
+    category:"cooking set",
+    price: 500,
+    images:[
+      "../images/products/6pcs stainless steel heavy under pot 500gh kumasi.jpeg",
+    ],
+    description: "",
+    specs:{
+      Type: "cooking set",
+    }
+  },
+
+  10:{
+    id:10,
+    name:"Rice cooker",
+    category:"cooker",
+    price: 500,
+    images:[
+      "../images/products/Rice cooker 500gh kumasi.jpeg",
+    ],
+    description: "",
+    specs:{
+      Type: "cooker",
+    }
+  },
+
+  11:{
+    id:11,
+    name:"Hand steam iron",
+    category:"Iron",
+    price: 500,
+    images:[
+      "../images/products/Hand steam iron w 250gh kumasi.jpeg",
+    ],
+    description: "",
+    specs:{
+      Type: "Electric Steam Iron",
+    }
+  },
+
+  12:{
+    id:12,
+    name:"16pcs ceramic set 350gh kumasi",
+    category:"Iron",
+    price: 350,
+    images:[
+      "../images/products/16pcs ceramic set 350gh kumasi.jpeg",
+    ],
+    description: "",
+    specs:{
+      Type: "Ceramic Set",
+      Pieces: "16"
+    }
+  },
+
+  13:{
+    id:13,
+    name:"3set ceramic serving bowls",
+    category:"Cooking Set",
+    price: 300,
+    images:[
+      "../images/products/3set ceramic serving bowls 300gh kumasi.jpeg",
+    ],
+    description: "",
+    specs:{
+      Type: "Ceramic Bowls",
+    }
+  },
+
+  14:{
+    id:14,
+    name:"2L mixer",
+    category:"Cooking Set",
+    price: 300,
+    images:[
+      "../images/products/2L mixer 300gh.jpeg",
+    ],
+    description: "",
+    specs:{
+      Type: "Cooking Mixer",
+    }
+  },
+
+  15:{
+    id:15,
+    name:"Inflatable 2in1 sofa",
+    category:"SOFA",
+    price: 300,
+    images:[
+      "../images/products/300gh. Inflatable 2in1 sofa.jpeg",
+    ],
+    description: "",
+    specs:{
+      Type: "Inflatable sofa",
+    }
+  },
+
+  16:{
+    id:16,
+    name:"350gh table.",
+    category:"TABLE",
+    price: 350,
+    images:[
+      "../images/products/350gh table..jpeg",
+    ],
+    description: "",
+    specs:{
+      Type: "INDOOR TABLE",
+    }
+  },
+
+  17:{
+    id:17,
+    name:"Asano 1.5hp AC",
+    category:"AIR CONDITION",
+    price: 3540,
+    images:[
+      "../images/products/Asano 1.5hp AC 3,450gh.jpeg",
+    ],
+    description: "",
+    specs:{
+      Type: "ASANO 1.5HP",
+    }
+  },
+
+  
+  18:{
+    id:18,
+    name:"Toilet rack 250gh kumasi",
+    category:"rack",
+    price: 250,
+    images:[
+      "../images/products/Toilet rack 250gh kumasi.jpeg",
+    ],
+    description: "",
+    specs:{
+      Type: "RACK",
+    }
+  },
+
 };
 
 function updateCartCount() {

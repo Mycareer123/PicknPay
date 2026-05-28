@@ -214,34 +214,10 @@
     let timestamp = new Date().toLocaleString();
     message += `Order Time: ${timestamp}%0A%0A`;
 
-    // Fetch GPS location
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(position => {
-
-        let lat = position.coords.latitude;
-        let lon = position.coords.longitude;
-
-        let mapLink = `https://maps.google.com/?q=${lat},${lon}`;
-
-        message += `Customer Location:%0A${mapLink}%0A%0A`;
-
-        sendToWhatsApp(message);
-
-      }, () => {
-        // If location is denied
-        message += `Customer Location: Not provided%0A%0A`;
-        sendToWhatsApp(message);
-      });
-
-    } else {
-      // No GPS support
-      message += `Customer Location: Not supported%0A%0A`;
-      sendToWhatsApp(message);
-    }
   });
 
   function sendToWhatsApp(message) {
-    let adminNumber = "233509468114"; // Your father's WhatsApp number
+    let adminNumber = "233244588485"; 
     let url = `https://wa.me/${adminNumber}?text=${message}`;
     window.open(url, "_blank");
   }

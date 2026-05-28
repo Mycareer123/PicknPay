@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="GOAK">
+  <meta name="description" content="Fresh Rabbit and Organic Manure">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="assets/main.css">
+  <link rel="icon" type="image/png" href="../images/main/Ashanko Farms icon.jpg">
+</head>
+<body>
+  <!-- Floating Cart Button -->
+   <a href="view/cart.html">
+    <button id="floatingCartBtn">
+    🛒 Cart (<span id="cart-Count">0</span>)
+    </button>
+   </a>
+  
+
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html">Pick<span class="logo-n">n</span><span class="logo-pay">Pay</span></a>
+      </div>
+
+      <!-- Hamburger Icon -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="links active">Home</a></li>
+        <li><a href="#products" class="links">Products</a></li>
+        <li><a href="#contact" class="links">Contact</a></li>
+        <li><a href="views/services.html" class="service-btn" style="display: none">Request Package</a></li>
+        <li>
+          <a href="views/cart.html" class="cart-link">
+            🛒 <span id="cart-count">0</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+ 
+  <!--What i am working on at the moment
+  Guide video is on huawei y9 prime-->
+  <section id="hero">
+    <div class="hero-text">
+      <div>
+        <h1>Everything your home deserves, all in one place.</h1>
+
+        <p>
+          From washing machines to cooking utensils, we bring quality home essentials right to your door. Because a happy home starts with the right tools.
+        </p>
+
+        <div class="hero-buttons">
+          
+          <a href="#products" class="btn secondary">View Latest Products</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-image">
+
+    </div>
+  </section>
+  
+  <!--This product is a sample for the products and services page.-->
+
+  <!--You can add products to this by input it in. fill in the data-category field of the product in order to enable it in its category windows.-->
+  <section id="products">
+    <h2>Hot Selling Products</h2>
+
+     <!--This is the search bar for products-->
+    <div id="searchBox">
+      <input type="text" id="searchInput" placeholder="Search products...">
+      <input type="number" id="priceInput" placeholder="Max Price (GH₵)" min="0">
+
+      <select id="categorySelect">
+        <option value="">All Categories</option>
+        <option value="cooking set">Cooking Sets</option>
+        <option value="appliances">Appliances</option>
+        <option value="bottles">Bottles</option>
+        <option value="indoor">Indoors</option>
+      </select>
+    </div>
+  
+  
+    <div class="product-list">
+      <a href="views/product.html?id=1" class="product-link">
+        <div class="products" data-category="Cooking Set">
+          <img src="../images/products/12pcs cooking set.jpeg" alt="Cooking Set">
+          <h3>12pcs Cooking Set</h3>
+          <p><b>GH&#8373 800</b></p>
+        </div>
+      </a>
+
+      <a href="views/product.html?id=2" class="product-link">
+        <div class="products" data-category="Bottles">
+          <img src="../images/products/500ml temperature flask 90gh.jpeg" alt="">
+          <h3>500ml temperature flask</h3>
+          <p><b>GH&#8373 90</b></p>
+        </div>
+      </a>
+
+      <a href="views/product.html?id=3" class="product-link">
+        <div class="products" data-category="appliances">
+          <img src="../images/products/Big commercial blender with dispenser 1800gh.jpeg" alt="">
+          <h3>Big commercial blender with dispenser</h3>
+          <p><b>GH&#8373 1800</b></p>
+        </div>
+      </a>
+
+      <a href="views/product.html?id=4" class="product-link">
+        <div class="products" data-category="appliances">
+          <img src="../images/products/8in1 blender 550gh.jpeg" alt="">
+          <h3>8in1 blender</h3>
+          <p><b>GH&#8373 550</b></p>
+        </div>
+      </a>
+
+      <a href="views/product.html?id=5" class="product-link">
+        <div class="products" data-category="Cooking set">
+          <img src="../images/products/Cooking Set.jpeg" alt="">
+          <h3>Cooking Set Pan and 4 Pots</h3>
+          <p><b>GH&#8373 400</b></p>
+        </div>
+      </a>
+
+      <a href="views/product.html?id=6" class="product-link">
+        <div class="products" data-category="Cooking Set">
+          <img src="../images/products/4in1 cooking lunch bowl 300gh.jpeg" alt="">
+          <h3>4in1 cooking lunch bowl</h3>
+          <p><b>GH&#8373 300</b></p>
+        </div>
+      </a>
+
+      <a href="views/product.html?id=7" class="product-link">
+        <div class="products" data-category="Rack">
+          <img src="../images/products/Gh200 shoe rag.jpeg" alt="">
+          <h3>SHOE RACK</h3>
+          <p><b>GH&#8373 200</b></p>
+        </div>
+      </a>
+
+      <a href="views/product.html?id=8" class="product-link">
+        <div class="products" data-category="Appliances">
+          <img src="../images/products/Hoffmans swallow maker 8L 750gh kumasi.jpeg" alt="">
+          <h3>Hoffmans swallow maker 8L</h3>
+          <p><b>GH&#8373 750</b></p>
+        </div>
+      </a>
+
+      <a href="views/product.html?id=9" class="product-link">
+        <div class="products" data-category="cooking set">
+          <img src="../images/products/6pcs stainless steel heavy under pot 500gh kumasi.jpeg" alt="">
+          <h3>6pcs stainless steel heavy under pot</h3>
+          <p><b>GH&#8373 500</b></p>
+        </div>
+      </a>
+
+      <a href="views/product.html?id=10" class="product-link">
+        <div class="products" data-category="appliances">
+          <img src="../images/products/Rice cooker 500gh kumasi.jpeg" alt="">
+          <h3>Rice cooker</h3>
+          <p><b>GH&#8373 500</b></p>
+        </div>
+      </a>
+
+      <a href="views/product.html?id=11" class="product-link">
+        <div class="products" data-category="appliances">
+          <img src="../images/products/Hand steam iron w 250gh kumasi.jpeg" alt="">
+          <h3>Hand steam iron</h3>
+          <p><b>GH&#8373 250</b></p>
+        </div>
+      </a>
+
+      <a href="views/product.html?id=12" class="product-link">
+        <div class="products" data-category="Cooking set">
+          <img src="../images/products/16ocs ceramic set 350gh kumasi.jpeg" alt="">
+          <h3>16pcs ceramic set 350gh kumasi</h3>
+          <p><b>GH&#8373 350</b></p>
+        </div>
+      </a>
+      
+      <a href="views/product.html?id=13" class="product-link">
+        <div class="products" data-category="Cooking Set">
+          <img src="../images/products/3set ceramic serving bowls 300gh kumasi.jpeg" alt="">
+          <h3>3set ceramic serving bowls</h3>
+          <p><b>GH&#8373 300</b></p>
+        </div>
+      </a>
+
+      <a href="views/product.html?id=14" class="product-link">
+        <div class="products" data-category="Cooking Set">
+          <img src="../images/products/2L mixer 300gh.jpeg" alt="">
+          <h3>2L mixer</h3>
+          <p><b>GH&#8373 300</b></p>
+        </div>
+      </a>
+
+      <a href="views/product.html?id=15" class="product-link">
+        <div class="products" data-category="Indoor">
+          <img src="../images/products/300gh. Inflatable 2in1 sofa.jpeg" alt="">
+          <h3>Inflatable 2in1 sofa</h3>
+          <p><b>GH&#8373 300</b></p>
+        </div>
+      </a>
+
+      <a href="views/product.html?id=16" class="product-link">
+        <div class="products" data-category="Indoor">
+          <img src="../images/products/350gh table..jpeg" alt="">
+          <h3>table.</h3>
+          <p><b>GH&#8373 350</b></p>
+        </div>
+      </a>
+
+      <a href="views/product.html?id=17" class="product-link">
+        <div class="products" data-category="Air Condition">
+          <img src="../images/products/Asano 1.5hp AC 3,450gh.jpeg" alt="">
+          <h3>Asano 1.5hp AC</h3>
+          <p><b>GH&#8373 3,540</b></p>
+        </div>
+      </a>
+
+      <a href="views/product.html?id=18" class="product-link">
+        <div class="products" data-category="RACK">
+          <img src="../images/products/Toilet rack 250gh kumasi.jpeg" alt="">
+          <h3>Toilet rack</h3>
+          <p><b>GH&#8373 250</b></p>
+        </div>
+      </a>
+
+
+
+    </div>
+  </section>
+
+  <section id="contact">
+  <h2>Contact Us</h2>
+
+  <div class="contact-container">
+
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <h3>Get in Touch</h3>
+      <p>We Bring you Quality Home appliances and Equipments</p>
+
+      <p><strong>Phone:</strong> <a href="tel:+233244588485" class="tel">Reach Out to Us</a></p>
+      <p><strong>WhatsApp:</strong> <a href="https://wa.me/233244588485" target="_blank" class="tel">Chat on WhatsApp</a></p>
+      <p><strong>Service Area:</strong>Delivery Accross Ghana</p>
+    </div>
+
+    <!-- Contact Form -->
+    <form class="contact-form" id="contactForm">
+      <h3>Send Us a Message</h3>
+
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="tel" id="phone" placeholder="Your Phone Number" required>
+      <textarea id="message" rows="5" placeholder="Make an Enquiry" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+
+    </div>
+</section>
+
+<script>
+const searchInput = document.getElementById("searchInput");
+const priceInput = document.getElementById("priceInput");
+const categorySelect = document.getElementById("categorySelect");
+const productCards = document.querySelectorAll(".products");
+
+function filterProducts() {
+  const searchValue = searchInput.value.toLowerCase();
+  const maxPrice = parseFloat(priceInput.value);
+  const selectedCategory = categorySelect.value.toLowerCase();
+
+  productCards.forEach(card => {
+    const name = card.querySelector("h3").textContent.toLowerCase();
+    const priceText = card.querySelector("p").textContent.replace(/[^\d]/g, "");
+    const price = parseFloat(priceText);
+
+    // Category: use data-category attribute
+    const category = card.dataset.category ? card.dataset.category.toLowerCase() : "";
+
+    const matchName = name.includes(searchValue);
+    const matchPrice = isNaN(maxPrice) || price <= maxPrice;
+    const matchCategory = selectedCategory === "" || category === selectedCategory;
+
+    if (matchName && matchPrice && matchCategory) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+
+// Listen to all filters
+searchInput.addEventListener("input", filterProducts);
+priceInput.addEventListener("input", filterProducts);
+categorySelect.addEventListener("change", filterProducts);
+</script>
+
+<script>
+  // Function to update cart count display
+  function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let count = cart.reduce((total, item) => total + item.quantity, 0);
+    document.getElementById("cart-count").textContent = count;
+  }
+
+  function updateCartCount1() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let count = cart.reduce((total, item) => total + item.quantity, 0);
+    document.getElementById("cart-Count").textContent = count;
+  }
+
+  // Run on page load
+  updateCartCount();
+  updateCartCount1();
+
+  // Add event listeners to all Add to Cart buttons
+  document.querySelectorAll(".add-to-cart").forEach(btn => {
+    btn.addEventListener("click", function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      // Get product info
+      let product = btn.parentElement;
+      let name = product.querySelector("h3").textContent.trim();
+      let priceText = product.querySelector("p b").textContent.replace("GH₵", "").trim();
+      let price = parseFloat(priceText);
+
+      // Get cart from localStorage
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      // Check if item already exists
+      let existing = cart.find(p => p.name === name);
+      if (existing) {
+        existing.quantity += 1;  // Increase quantity by 1
+      } else {
+        cart.push({ name: name, price: price, quantity: 1 });
+      }
+
+      // Save updated cart
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      // Update cart count immediately
+      updateCartCount();
+      updateCartCount1();
+
+      //pop animation
+      // Animate cart button
+      const cartBtn = document.querySelector(".cart-btn");
+      cartBtn.classList.add("pop");
+      setTimeout(() => {
+        cartBtn.classList.remove("pop");
+      }, 300); // match animation duration
+
+
+      // Flying image animation
+      const productImg = product.querySelector("img");
+      const imgClone = productImg.cloneNode(true);
+      const rect = productImg.getBoundingClientRect();
+      const cartRect = cartBtn.getBoundingClientRect();
+
+      imgClone.classList.add("flying-img");
+      imgClone.style.top = rect.top + "px";
+      imgClone.style.left = rect.left + "px";
+      document.body.appendChild(imgClone);
+
+      // Force reflow for transition to work
+      imgClone.getBoundingClientRect();
+
+      // Move image to cart
+      imgClone.style.transform = `translate(${cartRect.left - rect.left}px, ${cartRect.top - rect.top}px) scale(0.2)`;
+      imgClone.style.opacity = "0";
+
+      // Remove image after animation
+      setTimeout(() => {
+        imgClone.remove();
+      }, 800);
+
+
+
+            // Optional alert
+            // alert(name + " added to cart!");
+          });
+        });
+</script>
+
+<!--Contact section Java Script-->
+<script>
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let message = document.getElementById("message").value.trim();
+
+    let whatsappNumber = "233244588485";
+
+    let whatsappMessage =
+      `Hello, I would like to make an enquiry.%0A%0A` +
+      `Name: ${name}%0A` +
+      `Phone: ${phone}%0A` +
+      `Message: ${message}`;
+
+    let whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+    window.open(whatsappURL, "_blank");
+  });
+</script>
+
+<!--Hamburger Script for index.html-->
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("nav-links");
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+
+  // Close menu when a link is clicked
+  document.querySelectorAll("#nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+    });
+  });
+</script>
+
+<script>
+//Javascript for contact boxes translates
+  // Select both boxes
+const contactBoxes = document.querySelectorAll(".contact-info, .contact-form");
+
+function checkContactVisible() {
+  const contactSection = document.getElementById("contact");
+  const rect = contactSection.getBoundingClientRect();
+  const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+  if (rect.top <= windowHeight - 100) {
+    contactBoxes.forEach(box => box.classList.add("visible"));
+  } else {
+    contactBoxes.forEach(box => box.classList.remove("visible")); // optional: animate out when scrolling up
+  }
+}
+
+// Listen to scroll
+window.addEventListener("scroll", checkContactVisible);
+
+// Run on page load
+checkContactVisible();
+
+</script>
+</body>
+
+</html>

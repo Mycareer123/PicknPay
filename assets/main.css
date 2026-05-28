@@ -230,7 +230,7 @@ section {
 }
 
 .product-list{
-  display: grid !important;
+  display: flex !important;
   grid-template-columns: repeat(6, 1fr);
 }
 
