@@ -146,7 +146,6 @@
           <div class="item-info">
             <h3>${item.name}</h3>
             <p>GH₵ ${item.price}</p>
-            <p>Color: ${item.color}</p> 
           </div>
 
           <div class="quantity-controls">
@@ -214,6 +213,8 @@
     let timestamp = new Date().toLocaleString();
     message += `Order Time: ${timestamp}%0A%0A`;
 
+
+    sendToWhatsApp(message);
   });
 
   function sendToWhatsApp(message) {

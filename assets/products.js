@@ -29,19 +29,7 @@ for (let key in product.specs) {
 }
 
 //choose color of product
-const selector = document.getElementById('colorSelect');
 
-product.color.forEach(item => {
-  const option = document.createElement('option');
-  option.value = item;
-  option.textContent = item;
-  selector.appendChild(option);
-});
-
-selector.addEventListener('change', () => {
-  selectedValue = selector.value;
-  document.querySelector('.color div').style.background = selectedValue;
-});
 
 
 // Add to cart
@@ -50,11 +38,10 @@ document.getElementById("add-to-cart").onclick = () => {
 
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   let existing = cart.find((p) => p.name === product.name);
-  let selectedValue = selector.value;
   if (existing) {
     existing.quantity += qty;
   } else {
-    cart.push({name: product.name, price: product.price, quantity: qty, color: selectedValue });
+    cart.push({name: product.name, price: product.price, quantity: qty});
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));

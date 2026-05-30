@@ -199,6 +199,14 @@ body {
   width: 2rem;
   height: 2rem;
 }
+
+#description{
+  font-size: 1.4rem;
+} 
+
+#specs li{
+  font-size: 1.4rem;
+}
 </style>
 <link rel="icon" type="image/png" href="Ashanko Farms icon.jpg">
 </head>
@@ -219,21 +227,10 @@ body {
   
   <ul id="specs"></ul>
 
-  <div class="color">
-    <label for="color">Choose Color:</label>
-    
-    <select name="color" id="colorSelect">
-      <option value=""></option>
-    </select>
-    <div>
-
-    </div>
-  </div>
-
   <h2 id="price"></h2>  
   <input type="number" id="qty" value="1" min="1">
 
-  <button id="add-to-cart">Add to Cart</button>
+  <button id="add-to-cart" class="add-to-cart">Add to Cart</button>
 </body>
 <script>
   const PRODUCTS = {
@@ -404,7 +401,7 @@ body {
     category:"Iron",
     price: 350,
     images:[
-      "../images/products/16pcs ceramic set 350gh kumasi.jpeg",
+      "../images/products/16ocs ceramic set 350gh kumasi.jpeg",
     ],
     description: "",
     specs:{
